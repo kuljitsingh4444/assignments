@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import './App.css';
+import ErrorComponent from './Error';
 
 class InputComponent extends Component {
 
@@ -94,7 +94,7 @@ class InputComponent extends Component {
           </button>
         </div>
         {
-          error && <div>{error}</div>
+          error && <ErrorComponent message={error}/>
         }
       </Fragment>
     );
