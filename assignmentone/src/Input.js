@@ -11,22 +11,7 @@ class InputComponent extends Component {
     }
   }
 
-  emptyNumberCheck = (data) => {
-    if(data.includes(',,')){
-      this.setState({
-        error : 'Error! Missed some numbers'
-      })
-      return true;
-    }
-    return false
-  }
-
   checkIfValidInput = (data) => {
-    const emptyNumberError = this.emptyNumberCheck(data)
-    if(emptyNumberError) {
-      return false;
-    }
-
     let arrayInput = data.split(',');
 
     arrayInput = arrayInput.map(data => {
@@ -34,6 +19,10 @@ class InputComponent extends Component {
         return data.trim();
       }
     }).filter(element => element);
+
+    if(!arrayInput.length){
+      return false
+    }
 
     let isValid = true;
     arrayInput.forEach(inputElement => {
@@ -67,7 +56,7 @@ class InputComponent extends Component {
     const isValid = this.checkIfValidInput(inputValue);
     if(!isValid){
       this.setState({
-        error : 'Invalid input, try removing extra white spaces or give proper range or remove special characters/alphabets'
+        error : 'Invalid input, try removing extra white spaces or give proper range or remove special characters/alphabets or add atleast 1 number'
       })
       updateArray([]);
       return;
@@ -79,10 +68,12 @@ class InputComponent extends Component {
 
   handeChange = (e) => {
     const value = e.target.value;
+    const { clearError } = this.props;
     this.setState({
       inputValue: value,
       error : ''
     })
+    clearError()
   }
 
   render(){

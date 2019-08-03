@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Input from './Input';
 import Result from './Result';
+import Error from './Error';
 import './App.css';
 
 class App extends Component {
@@ -15,8 +16,27 @@ class App extends Component {
     }
   }
 
+  hasLengthChanged = (initalLenght, finalLenght) => {
+    this.setState({
+      error : initalLenght!==finalLenght ? 
+      'some empty array elements are not considereds for this calculation' : 
+      ''
+    })
+  }
+
   updateArray = (array) => {
+    const initialLength = array.length;
+
+    array = array.map(data => {
+      if(data.trim()){
+        return data.trim();
+      }
+    }).filter(element => element);
+
+    const finalLength = array.length;
+
     if(array.length) {
+      this.hasLengthChanged(initialLength, finalLength);
       const duplicates = this.updateDuplicates(array);
       this.updateDistinctElements(array, duplicates);
     } else { 
@@ -30,7 +50,7 @@ class App extends Component {
     let distinctElements = [];
     const { existingArray } = this.state;
     existingArray.forEach(existingArrayElement => {
-      if(!duplicates.includes(existingArrayElement)) {
+      if(!duplicates.includes(existingArrayElement) && !distinctElements.includes(existingArrayElement)) {
         distinctElements.push(existingArrayElement);
       }
     })
@@ -39,7 +59,7 @@ class App extends Component {
       const element = Number(arrayElement);
       if(!isNaN(element)) {
         //number case
-        if(!duplicates.includes(element)) {
+        if(!duplicates.includes(element) && !distinctElements.includes(element)) {
           distinctElements.push(element);
         }
       } else {
@@ -48,7 +68,7 @@ class App extends Component {
         const lowerLimit = Number(rangeArray[0]);
         const upperLimit = Number(rangeArray[1]);
         for( let i = lowerLimit+1 ; i < upperLimit; i++ ) {
-          if(!duplicates.includes(i)){
+          if(!duplicates.includes(i) && !distinctElements.includes(i)){
             distinctElements.push(i);
           }
         }
@@ -90,9 +110,16 @@ class App extends Component {
     })
     return duplicates
   }
+
+  clearError = () => {
+    this.setState({
+      error : '',
+      showResults : false
+    })
+  }
   
   render(){
-    const { existingArray, duplicates, showResults, distinctElements } = this.state;
+    const { existingArray, duplicates, showResults, distinctElements, error } = this.state;
     return (
       <Fragment>
         <div>
@@ -108,7 +135,8 @@ class App extends Component {
             }
           </div>
         </div>
-        <Input updateArray={this.updateArray}/>
+        <Input clearError={this.clearError} updateArray={this.updateArray}/>
+        {error && <Error message={error}/>}
         {
           showResults &&
           <div>
