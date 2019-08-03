@@ -26,10 +26,31 @@ class InputComponent extends Component {
     if(emptyNumberError) {
       return false;
     }
-    const arrayInput = data.split(',')
-    //use split and do trur validtion (use length), anuthing else if false.!!!! 
-    console.log(arrayInput);
-    return true
+
+    let arrayInput = data.split(',');
+
+    arrayInput = arrayInput.map(data => {
+      if(data.trim()){
+        return data.trim();
+      }
+    }).filter(element => element);
+
+    let isValid = true;
+    arrayInput.forEach(inputElement => {
+      if(isNaN(inputElement)){
+        let range = inputElement.split('-');
+        range = range.map(element => element.trim());
+        if(!( range.length === 2 && 
+          ( ( Number(range[0]) < Number(range[1]) ) || 
+            ( Number(range[0]) === Number(range[1]) )  
+          )
+        )) {
+          isValid = false
+        }
+      }
+    })
+
+    return isValid
   }
 
   handleClick = () => {
@@ -39,7 +60,14 @@ class InputComponent extends Component {
         error : 'Empty Input!'
       })
     }
-    const isValid  = this.checkIfValidInput(inputValue);
+    const isValid = this.checkIfValidInput(inputValue);
+    if(!isValid){
+      this.setState({
+        error : 'Invalid input, try removing extra white spaces or give proper range'
+      })
+      return;
+    }
+    // array is Valid write code flow!
   }
 
   handeChange = (e) => {
