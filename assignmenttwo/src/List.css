@@ -13,3 +13,20 @@ img.trailer-image {
     padding : 40px 0px 20px 0px;
     cursor: pointer;
 }
+
+.gap-trailer-view {
+    padding-top : 350px
+}
+
+.trailer-container {
+    position: absolute;
+    height:350px;
+}
+/* .dblock {
+    display: block;
+    position : relative;
+}*/
+.image-placement {
+    position: relative;
+    top:350px;
+} 
