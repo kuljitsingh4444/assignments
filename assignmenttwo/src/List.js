@@ -46,7 +46,7 @@ class List extends Component {
 					trailerListKeys.map((trailer, key) => {
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer)} key={key} className='trailer-list-item'>
-								<img className='trailer-image' src='https://in.bmscdn.com/events/moviecard/ET00046165.jpg'/>
+								<img className='trailer-image' src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>
 							</div>
 						);
 					})
