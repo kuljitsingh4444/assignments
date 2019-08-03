@@ -72,7 +72,8 @@ class App extends Component {
           </div>
         </div>
         <Input updateArray={this.updateArray}/>
-        {showResults &&
+        {
+          showResults &&
           <div>
             {
               duplicates.length > 0 ? 

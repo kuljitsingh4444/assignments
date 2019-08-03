@@ -67,7 +67,7 @@ class InputComponent extends Component {
     const isValid = this.checkIfValidInput(inputValue);
     if(!isValid){
       this.setState({
-        error : 'Invalid input, try removing extra white spaces or give proper range or remove special characters'
+        error : 'Invalid input, try removing extra white spaces or give proper range or remove special characters/alphabets'
       })
       updateArray([]);
       return;
