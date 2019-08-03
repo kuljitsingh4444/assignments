@@ -11,7 +11,8 @@ class List extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			trailerDisplayList : {}
+			trailerDisplayList : {},
+			selectedTrailerKey : ''
 		}
 		this.trailerContainer = React.createRef();
 	}
@@ -68,6 +69,7 @@ class List extends Component {
 	playTrailerRequest = (trailerKey) => {
 		const { trailerDisplayList } = this.state;
 		this.setState({
+			selectedTrailerKey : trailerKey,
 			trailerAtRow : trailerDisplayList[trailerKey].rowCount
 		})
 		setTimeout(()=>{
@@ -90,6 +92,19 @@ class List extends Component {
 			return 'trailer-list-item'
 		}
 	}
+
+	getImageClass = (showTrailer, isFirstOfRow, trailer) => {
+		const { selectedTrailerKey } = this.state;
+		let classList = '';
+		if(selectedTrailerKey === trailer) {
+			classList = ' border-img';
+		}
+		if(showTrailer && isFirstOfRow) {
+			return 'trailer-image image-placement'+classList
+		} else {
+			return 'trailer-image'+classList
+		}
+	}
 	
   render(){
 		const { trailerDisplayList = {}, trailerAtRow } = this.state;
@@ -108,7 +123,9 @@ class List extends Component {
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
 									<Trailer/>
 								</div>}
-								<img className={showTrailer && isFirstOfRow ? 'trailer-image image-placement' : 'trailer-image'} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>
+								<div className={'trailer-image-container'}>
+									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
+								</div>
 							</div>
 						);
 					})
