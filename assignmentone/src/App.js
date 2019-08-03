@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Input from './Input';
+import Result from './Result';
 import './App.css';
 
 class App extends Component {
@@ -9,18 +10,54 @@ class App extends Component {
     this.state = {
       existingArray : [7000,7001,7002,7003,7004,7005],
       duplicates : [],
-      showResults : false
+      showResults : false,
+      distinctElements : []
     }
   }
 
   updateArray = (array) => {
     if(array.length) {
-      this.updateDuplicates(array)
+      const duplicates = this.updateDuplicates(array);
+      this.updateDistinctElements(array, duplicates);
     } else { 
       this.setState({
         showResults : false
       })
     }
+  }
+
+  updateDistinctElements = (array, duplicates) => {
+    let distinctElements = [];
+    const { existingArray } = this.state;
+    existingArray.forEach(existingArrayElement => {
+      if(!duplicates.includes(existingArrayElement)) {
+        distinctElements.push(existingArrayElement);
+      }
+    })
+
+    array.forEach(arrayElement => {
+      const element = Number(arrayElement);
+      if(!isNaN(element)) {
+        //number case
+        if(!duplicates.includes(element)) {
+          distinctElements.push(element);
+        }
+      } else {
+        //range case
+        const rangeArray = String(arrayElement).split('-');
+        const lowerLimit = Number(rangeArray[0]);
+        const upperLimit = Number(rangeArray[1]);
+        for( let i = lowerLimit+1 ; i < upperLimit; i++ ) {
+          if(!duplicates.includes(i)){
+            distinctElements.push(i);
+          }
+        }
+      }
+    })
+    this.setState({
+      distinctElements : distinctElements,
+      showResults : true
+    })
   }
 
   updateDuplicates = (array) => {
@@ -49,13 +86,13 @@ class App extends Component {
     })
 
     this.setState({
-      duplicates : duplicates,
-      showResults : true
+      duplicates : duplicates
     })
+    return duplicates
   }
   
   render(){
-    const { existingArray, duplicates, showResults } = this.state;
+    const { existingArray, duplicates, showResults, distinctElements } = this.state;
     return (
       <Fragment>
         <div>
@@ -64,8 +101,8 @@ class App extends Component {
           </div>
           <div className={'dflex'}>
             {
-              existingArray.map(arrayElement => 
-              <div className={'array-element'}>
+              existingArray.map((arrayElement,index) => 
+              <div key={index} className={'array-element'}>
                 {arrayElement}
               </div>)
             }
@@ -75,22 +112,8 @@ class App extends Component {
         {
           showResults &&
           <div>
-            {
-              duplicates.length > 0 ? 
-                <div>
-                  Duplicates :
-                  <div className={'dflex'}>
-                    {
-                      duplicates.map((duplicateItem,index) => 
-                        <div key={index} className={'array-element'}>
-                          {duplicateItem}
-                        </div>
-                      )
-                    }
-                  </div>
-                </div>
-              :'No Duplicates'
-            }
+            <Result array={duplicates} heading={'Duplicates :'} noResultText={'No Duplicates'}/>
+            <Result array={distinctElements} heading={'Distict Elements :'} noResultText={'No Distict Elements'}/>
           </div>
         }
       </Fragment>
