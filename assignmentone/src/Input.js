@@ -55,19 +55,26 @@ class InputComponent extends Component {
 
   handleClick = () => {
     const { inputValue } = this.state
+    const { updateArray } = this.props;
+
     if(!inputValue.trim()){
       this.setState({
         error : 'Empty Input!'
       })
+      updateArray([]);
+      return;
     }
     const isValid = this.checkIfValidInput(inputValue);
     if(!isValid){
       this.setState({
-        error : 'Invalid input, try removing extra white spaces or give proper range'
+        error : 'Invalid input, try removing extra white spaces or give proper range or remove special characters'
       })
+      updateArray([]);
       return;
     }
-    // array is Valid write code flow!
+
+    // array is Valid, update in parent component!
+    updateArray(inputValue.split(','));
   }
 
   handeChange = (e) => {
