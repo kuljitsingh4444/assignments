@@ -15367,7 +15367,7 @@ class App extends Component {
     return(
       <Fragment>
         <Header/>
-        <List trailerList={trailerList}/>
+        {Object.keys(trailerList).length && <List trailerList={trailerList}/>}
       </Fragment>
     );
   }

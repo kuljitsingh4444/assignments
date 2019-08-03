@@ -1,0 +1,15 @@
+.trailer-list-container {
+    background: #333333;
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.trailer-list-item {
+    /* min-width : 300px */
+    display : flex;
+    justify-content : space-around;
+}
+img.trailer-image {
+    height : 190px;
+    padding : 40px 0px 20px 0px;
+    cursor: pointer;
+}
