@@ -7,9 +7,10 @@
 	/* min-width : 300px */
 	display : flex;
 	justify-content : space-around;
+	/* position: relative; */
 }
 img.trailer-image {
-	height : 190px;
+	height : 200px;
 	padding : 40px 0px 20px 0px;
 	cursor: pointer;
 }
@@ -26,6 +27,21 @@ img.trailer-image {
 	position: relative;
 	top:350px;
 } 
+
+.play-button {
+	height: 42px;
+	top: 118px;
+	position: relative;
+}
+.play-first-button {
+	z-index:1;
+	top:468px;
+}
+
+.icon-container {
+	position: absolute;
+	/* bottom : 50%; */
+}
 
 @media screen and (max-width: 1000px) {
 	.trailer-list-container {

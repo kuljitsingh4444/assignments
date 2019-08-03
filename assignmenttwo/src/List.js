@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Trailer from './Trailer';
+import play from './play.png';
 import './List.css';
 
 let rowCount = 0;
@@ -101,6 +102,9 @@ class List extends Component {
 						const isFirstOfRow = trailerDisplayList[trailer].firstOfRow;
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
+								<div className={'icon-container'}>
+									<img className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
+								</div>
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
 									<Trailer/>
 								</div>}
