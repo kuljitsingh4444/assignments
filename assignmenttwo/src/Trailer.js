@@ -51,51 +51,56 @@ class Trailer extends Component {
 
   render(){
 		const { trailerInfo } = this.props;
-		console.log(trailerInfo)
 		const { isPaused } = this.state;
+		console.log(trailerInfo)
     return(
-      <div className='trailer-main-container'>
-   			<ReactPlayer width={'45vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerInfo.TrailerURL} playing={!isPaused} />
-				 <div className='trailer-info-container'>
-					 <div>
-						<div className='title'>{trailerInfo.EventTitle}</div>
-						<div className='language'>{trailerInfo.EventLanguage}</div>
-						<div className='tag-content'>
-							{
-								trailerInfo.EventGenre.split('|').map(genre => {
-									return (
-										<div className='tag'>{genre}</div>
-									);
-								})
-							}
-						</div>
-						<div className='overlay'>
-							<div className='rating-info'>
-								<img className='img-like' src={like}/>
-								<div className='rating-detail'>
-									<div className='rating-perc'>{trailerInfo.ratings.wtsPerc} %</div>
-									<div className='rating-count'>{trailerInfo.ratings.wtsCount} votes</div>
+      <div>
+				<div className='backgorund'>
+					<img className='sel-img' src={`https://in.bmscdn.com/events/moviecard/${trailerInfo.EventCode}.jpg`}/>
+				</div>
+				<div className='trailer-main-container'>
+					<ReactPlayer width={'45vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerInfo.TrailerURL} playing={!isPaused} />
+					<div className='trailer-info-container'>
+						<div>
+							<div className='title'>{trailerInfo.EventTitle}</div>
+							<div className='language'>{trailerInfo.EventLanguage}</div>
+							<div className='tag-content'>
+								{
+									trailerInfo.EventGenre.split('|').map(genre => {
+										return (
+											<div className='tag'>{genre}</div>
+										);
+									})
+								}
+							</div>
+							<div className='overlay'>
+								<div className='rating-info'>
+									<img className='img-like' src={like}/>
+									<div className='rating-detail'>
+										<div className='rating-perc'>{trailerInfo.ratings.wtsPerc} %</div>
+										<div className='rating-count'>{trailerInfo.ratings.wtsCount} votes</div>
+									</div>
+								</div>
+								<div className='rating-info'>
+									<img className='img-like' src={calendar}/>
+									<div className='rating-detail'>
+										<div className='rating-perc'>{new moment(trailerInfo.ShowDate).format('MMM')}</div>
+										<div className='rating-count'>{new moment(trailerInfo.ShowDate).format('YYYY')}</div>
+									</div>
 								</div>
 							</div>
-							<div className='rating-info'>
-								<img className='img-like' src={calendar}/>
-								<div className='rating-detail'>
-									<div className='rating-perc'>{new moment(trailerInfo.ShowDate).format('MMM')}</div>
-									<div className='rating-count'>{new moment(trailerInfo.ShowDate).format('YYYY')}</div>
-								</div>
+							<div className='movie-desc'>
+									some text some text some text some text some text some text
+									some text some text some text some text some text some text.
+								</div>	
 							</div>
-						</div>
-						<div className='movie-desc'>
-								some text some text some text some text some text some text
-								some text some text some text some text some text some text.
-							</div>	
-						</div>
-						<div className='feedback-container'>
-							<div><Info value={trailerInfo.ratings.wtsCount} text='WILL WATCH' color='green'/></div>
-							<div><Info value={trailerInfo.ratings.maybe} text='MAYBE' color='yellow'/></div>
-							<div><Info value={trailerInfo.ratings.dwtsCount} text='WONT WATCH' color='#C60000'/></div>
-						</div>
-				 </div>
+							<div className='feedback-container'>
+								<div><Info value={trailerInfo.ratings.wtsCount} text='WILL WATCH' color='green'/></div>
+								<div><Info value={trailerInfo.ratings.maybe} text='MAYBE' color='yellow'/></div>
+								<div><Info value={trailerInfo.ratings.dwtsCount} text='WONT WATCH' color='#C60000'/></div>
+							</div>
+					</div>
+				</div>
       </div>
     );
   }

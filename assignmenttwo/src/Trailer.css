@@ -1,7 +1,8 @@
 .trailer-info-container {
+    background: black;
+    opacity: 0.82;
     color : white;
-    border: 1px solid red;
-    height: 338px;
+    height: 340px;
     width:45vw;
     padding: 10px;
     display: flex;
@@ -11,7 +12,8 @@
 .trailer-main-container {
     position: absolute;  
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    padding: 3px;
 }
 .title {
     font-size:18px;
@@ -66,4 +68,14 @@
     display : flex;
     justify-content: space-between;
     align-items : center
+}
+.backgorund {
+    position: absolute;
+    height: 370px;
+    width : 100%;
+}
+.sel-img {
+    height: 370px;
+    width : 95vw;
+    -webkit-filter: blur(25px);
 }
