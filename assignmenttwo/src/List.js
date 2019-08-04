@@ -138,18 +138,18 @@ class List extends Component {
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={isFirstOfRow && showTrailer ? 'first-icon-container icon-container':'icon-container'}>
-									<img style={trailer === selectedTrailerKey ? {visibility:'hidden'} : {}} className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
-									<div className={isFirstOfRow && showTrailer ? 'first-date display-date' : 'display-date'}>
+									<img style={trailer === selectedTrailerKey ? {visibility:'hidden'} : {}} className={'play-button'} src={play}/>
+									<div className={'display-date'}>
 										<Date ShowDate={ShowDate}/>
 									</div>
-									<div className={isFirstOfRow && showTrailer ? 'first-ratings display-ratings' : 'display-ratings'}>
+									<div className={'display-ratings'}>
 										<Ratings ratings={ratings}/>
 									</div>
 								</div>
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
 									<Trailer trailerInfo={trailerDisplayList[selectedTrailerKey]} isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} />
 								</div>}
-								<div className={isFirstOfRow && showTrailer ? 'trailer-abs trailer-image-container' :'trailer-image-container'}>
+								<div className={'trailer-image-container'}>
 									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
 									<div className={isFirstOfRow && showTrailer ? 'first-name name' : 'name'}>{trailerDisplayList[trailer].EventName}</div>
 								</div>

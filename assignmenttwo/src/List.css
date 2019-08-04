@@ -27,9 +27,7 @@ img.trailer-image {
 	margin-top : 350px
 }
 .first-name {
-	/* position: relative; */
 	top : 350px;
-	/* margin-top:350px */
 } 
 
 .trailer-container {
@@ -49,10 +47,6 @@ img.trailer-image {
 	left:10px;
 	cursor: pointer;
 }
-/* .play-first-button {
-	z-index:1;
-	top:468px;
-} */
 
 .icon-container {
 	z-index: 1;
@@ -62,11 +56,6 @@ img.trailer-image {
 
 .first-icon-container {
 	margin-top:350px;
-}
-
-.trailer-abs {
-	/* top:350px; */
-	/* position: absolute */
 }
 
 .display-date {
@@ -92,10 +81,6 @@ img.trailer-image {
 .year {
 	font-size:9px;
 }
-/* .first-date { */
-	/* top: 354px; */
-	/* z-index: 1 !important; */
-/* } */
 
 .wts-perc {
 	font-weight: 500;
@@ -141,11 +126,6 @@ img.like-png {
 	left: 44px;
 	top: 125px;
 }
-
-/* .first-ratings {
-	z-index:1;
-	top:475px;
-} */
 
 .information-icon {
 	height: 20px;
