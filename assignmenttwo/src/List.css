@@ -46,6 +46,7 @@ img.trailer-image {
 	top: 118px;
 	position: relative;
 	left:10px;
+	cursor: pointer;
 }
 .play-first-button {
 	z-index:1;
@@ -101,6 +102,7 @@ img.trailer-image {
 	color : white;
 	font-size : 12px;
 	max-width: 156px;
+	cursor: pointer;
 }
 
 .trailer-image-container:after{
@@ -122,6 +124,7 @@ img.like-png {
 }
 
 .rating-perc {
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 }
