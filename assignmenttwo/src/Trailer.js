@@ -89,9 +89,9 @@ class Trailer extends Component {
 								</div>
 							</div>
 							<div className='movie-desc'>
-									some text some text some text some text some text some text
-									some text some text some text some text some text some text.
-								</div>	
+									Watch this movie in 3D, 4D. Make sure to rate us in the below section.
+									Watch this movie in 3D, 4D. Make sure to rate us in the below section.
+								</div>
 							</div>
 							<div className='feedback-container'>
 								<div><Info value={trailerInfo.ratings.wtsCount} text='WILL WATCH' color='#64C593'/></div>
