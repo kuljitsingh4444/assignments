@@ -41,7 +41,7 @@ class List extends Component {
 			let trailerListCopy = {...trailerList}
 			this.setRowCount(trailerListCopy)
 			if(selectedTrailerKey) {
-				this.playTrailerRequest(selectedTrailerKey)
+				this.playTrailerRequest(selectedTrailerKey, false)
 			}
 		}
 	}
@@ -73,8 +73,12 @@ class List extends Component {
 		})
 	}
 
-	playTrailerRequest = (trailerKey) => {
+	playTrailerRequest = (trailerKey, resetPlayData) => {
 		const { trailerDisplayList } = this.state;
+		if(resetPlayData) {
+			this.isTrailerPaused = false;
+			this.playedSeconds = 0;	
+		}
 		this.setState({
 			selectedTrailerKey : trailerKey,
 			trailerAtRow : trailerDisplayList[trailerKey].rowCount,
@@ -129,7 +133,7 @@ class List extends Component {
 						const showTrailer = trailerDisplayList[trailer].rowCount === trailerAtRow ? true : false;
 						const isFirstOfRow = trailerDisplayList[trailer].firstOfRow;
 						return (
-							<div onClick={() => this.playTrailerRequest(trailer)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
+							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={'icon-container'}>
 									<img className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
 								</div>
