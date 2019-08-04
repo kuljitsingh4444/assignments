@@ -14,8 +14,7 @@ class List extends Component {
 		super(props);
 		this.state = {
 			trailerDisplayList : {},
-			selectedTrailerKey : '',
-			trailerLink : ''
+			selectedTrailerKey : ''
 		}
 		this.trailerContainer = React.createRef();
 		this.playedSeconds = 0;
@@ -84,7 +83,6 @@ class List extends Component {
 		this.setState({
 			selectedTrailerKey : trailerKey,
 			trailerAtRow : trailerDisplayList[trailerKey].rowCount,
-			trailerLink : trailerDisplayList[trailerKey].TrailerURL
 		})
 		setTimeout(()=>{
 			if(this.trailerContainer.current) {
@@ -126,7 +124,7 @@ class List extends Component {
 	}
 	
   render(){
-		const { trailerDisplayList = {}, trailerAtRow, trailerLink } = this.state;
+		const { trailerDisplayList = {}, trailerAtRow, selectedTrailerKey } = this.state;
 		const trailerListKeys = Object.keys(trailerDisplayList);
 		return(
 			<div className='trailer-list-container'> 
@@ -148,7 +146,7 @@ class List extends Component {
 									</div>
 								</div>
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
-									<Trailer isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} trailerLink={trailerLink}/>
+									<Trailer trailerInfo={trailerDisplayList[selectedTrailerKey]} isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} />
 								</div>}
 								<div className={isFirstOfRow && showTrailer ? 'trailer-abs trailer-image-container' :'trailer-image-container'}>
 									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	

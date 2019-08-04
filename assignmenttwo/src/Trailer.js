@@ -46,11 +46,12 @@ class Trailer extends Component {
 	}
 
   render(){
-		const { trailerLink } = this.props;
+		const { trailerInfo } = this.props;
+		console.log(trailerInfo)
 		const { isPaused } = this.state;
     return(
       <div className='trailer-main-container'>
-   			<ReactPlayer width={'45vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerLink} playing={!isPaused} />
+   			<ReactPlayer width={'45vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerInfo.TrailerURL} playing={!isPaused} />
 				 <div className='trailer-info-container'>
 					 INFO HERE
 				 </div>
