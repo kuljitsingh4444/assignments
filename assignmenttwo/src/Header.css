@@ -1,0 +1,27 @@
+.header {
+	display: flex;
+	height : 80px;
+	align-items: center;
+	padding-left: 29px;
+	background: #010001;
+}
+
+.page-title {
+	margin-right : 25px;
+	color : white;
+}
+
+.button {
+	margin-right: 15px;
+	border : none;
+	color : white;
+	background: #64C593;
+	border : 1px solid #64C593;
+	border-radius: 4px;
+	height: 30px;
+}
+
+.now-showing {
+	background: #1C1B1D;	
+	border: 1px solid #1C1B1D;
+}
