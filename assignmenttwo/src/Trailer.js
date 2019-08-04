@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player';
 import like from './like.png';
 import calendar from './calendar.png';
 import moment from 'moment';
+import Info from './common/Info';
 
 class Trailer extends Component {
 
@@ -90,9 +91,9 @@ class Trailer extends Component {
 							</div>	
 						</div>
 						<div className='feedback-container'>
-							<div>1</div>
-							<div>2</div>
-							<div>3</div>
+							<div><Info value={trailerInfo.ratings.wtsCount} text='WILL WATCH' color='green'/></div>
+							<div><Info value={trailerInfo.ratings.maybe} text='MAYBE' color='yellow'/></div>
+							<div><Info value={trailerInfo.ratings.dwtsCount} text='WONT WATCH' color='#C60000'/></div>
 						</div>
 				 </div>
       </div>
