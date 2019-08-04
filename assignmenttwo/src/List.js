@@ -150,6 +150,7 @@ class List extends Component {
 									<Trailer trailerInfo={trailerDisplayList[selectedTrailerKey]} isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} />
 								</div>}
 								<div className={'trailer-image-container'}>
+									<div onClick={() => this.playTrailerRequest(trailer,true)} className={isFirstOfRow && showTrailer ? 'over first-over' :'over'}/>
 									<img onClick={() => this.playTrailerRequest(trailer,true)} className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
 									<div onClick={() => this.playTrailerRequest(trailer,true)} className={isFirstOfRow && showTrailer ? 'first-name name' : 'name'}>{trailerDisplayList[trailer].EventName}</div>
 								</div>
