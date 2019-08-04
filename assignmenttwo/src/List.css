@@ -10,6 +10,7 @@
 }
 img.trailer-image {
 	height : 200px;
+	width : 155px;
 	cursor: pointer;
 	border : 3px solid transparent
 }
