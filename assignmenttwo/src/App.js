@@ -14,18 +14,6 @@ class App extends Component {
   }
 
   componentDidMount(){
-    // fetch('https://in.bookmyshow.com/serv/getData?cmd=GETTRAILERS&mtype=cs',{
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   mode: 'no-cors'
-    // })
-    // // .then((res) => { return res.json() })
-    // .then(response => {
-    //   console.log(response)
-    // });
-    
     let filters = [];
     let trailerList = {};
     const apiPayload = [
