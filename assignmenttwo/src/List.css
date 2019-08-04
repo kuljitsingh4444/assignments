@@ -60,6 +60,7 @@ img.trailer-image {
 .icon-container {
 	z-index: 1;
 	position: absolute;
+	height: 0px;
 	/* bottom : 50%; */
 }
 
