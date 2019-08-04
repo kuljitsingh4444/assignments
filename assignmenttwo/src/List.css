@@ -21,7 +21,7 @@ img.trailer-image {
 }
 
 .border-img {
-	border : 3px solid #c7ea46 !important
+	border : 3px solid green !important
 }
 
 .gap-trailer-view {
@@ -55,6 +55,34 @@ img.trailer-image {
 
 .trailer-abs {
 	position: absolute
+}
+
+.display-date {
+	background: green;
+	border :1px solid green !important;
+	color : white;
+	display: flex;
+	width:26px;
+	flex-direction: column;
+	align-items: center;
+	height: fit-content;
+	border: 1px solid;
+	border-radius: 50%;
+	padding: 5px;
+	position: relative;
+	left: 52px;
+  top: 5px;	
+}
+.month {
+	font-weight : bold;
+	font-size: 11px;
+}
+.year {
+	font-size:9px;
+}
+.first-date {
+	top: 355px;
+	z-index: 1 !important;
 }
 
 @media screen and (max-width: 1000px) {

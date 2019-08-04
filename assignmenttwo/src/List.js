@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Trailer from './Trailer';
 import play from './play.png';
 import './List.css';
+import moment from 'moment';
 
 let rowCount = 0;
 let trailerPerRow = 0;
@@ -122,6 +123,18 @@ class List extends Component {
 		this.playedSeconds = playedSeconds;
 		this.isTrailerPaused = isTrailerPaused;
 	}
+
+	getDisplayDate = (ShowDate) => {
+		const showDispalyMonth = new moment(ShowDate).format('MMM');
+		const showDisplayYear = new moment(ShowDate).format('YYYY');
+		return (
+			<div>
+				<div className='month'>{showDispalyMonth}</div>
+				<div className='year'>{showDisplayYear}</div>
+			</div>
+		);
+
+	}
 	
   render(){
 		const { trailerDisplayList = {}, trailerAtRow, trailerLink } = this.state;
@@ -132,10 +145,13 @@ class List extends Component {
 					trailerListKeys.map((trailer, key) => {
 						const showTrailer = trailerDisplayList[trailer].rowCount === trailerAtRow ? true : false;
 						const isFirstOfRow = trailerDisplayList[trailer].firstOfRow;
+						const ShowDate = trailerDisplayList[trailer].ShowDate;
+						const displayDate = this.getDisplayDate(ShowDate)
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={'icon-container'}>
 									<img className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
+									<div className={isFirstOfRow && showTrailer ? 'first-date display-date' : 'display-date'}>{displayDate}</div>
 								</div>
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
 									<Trailer isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} trailerLink={trailerLink}/>

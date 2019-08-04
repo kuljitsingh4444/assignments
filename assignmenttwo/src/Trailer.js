@@ -13,15 +13,6 @@ class Trailer extends Component {
 		}
 	}
 
-	componentDidUpdate(prevProps){
-		console.log('updated')
-		// const { trailerLink, updatePlayTime } = this.props;
-		// if(prevProps.trailerLink !== trailerLink) {
-		// 	this.isPaused = false;
-		// 	updatePlayTime(0,false)
-		// }
-	}
-
 	componentDidMount(){
 		const { playedSeconds, isTrailerPaused } = this.props;
 		if(playedSeconds && !isTrailerPaused){
