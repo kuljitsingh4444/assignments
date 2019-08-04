@@ -3,7 +3,7 @@ import '../List.css';
 import like from '../like.png';
 
 export default function Ratings(props){
-    const  { totalWTSCount } = props.ratings;
+    const  { wtsCount } = props.ratings;
     const { wtsPerc } = props.ratings;
     return (
         <React.Fragment>
@@ -11,7 +11,7 @@ export default function Ratings(props){
                 <img className='like-png' src={like}/>
                 <div className='wts-perc'>{wtsPerc}%</div>
             </div>
-            <div className='wts-count'>{totalWTSCount} votes</div>
+            <div className='wts-count'>{wtsCount} votes</div>
         </React.Fragment>
     );
 }

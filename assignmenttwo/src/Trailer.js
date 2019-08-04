@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './Trailer.css';
 import ReactPlayer from 'react-player';
+import like from './like.png';
+import calendar from './calendar.png';
+import moment from 'moment';
 
 class Trailer extends Component {
 
@@ -53,7 +56,44 @@ class Trailer extends Component {
       <div className='trailer-main-container'>
    			<ReactPlayer width={'45vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerInfo.TrailerURL} playing={!isPaused} />
 				 <div className='trailer-info-container'>
-					 INFO HERE
+					 <div>
+						<div className='title'>{trailerInfo.EventTitle}</div>
+						<div className='language'>{trailerInfo.EventLanguage}</div>
+						<div className='tag-content'>
+							{
+								trailerInfo.EventGenre.split('|').map(genre => {
+									return (
+										<div className='tag'>{genre}</div>
+									);
+								})
+							}
+						</div>
+						<div className='overlay'>
+							<div className='rating-info'>
+								<img className='img-like' src={like}/>
+								<div className='rating-detail'>
+									<div className='rating-perc'>{trailerInfo.ratings.wtsPerc} %</div>
+									<div className='rating-count'>{trailerInfo.ratings.wtsCount} votes</div>
+								</div>
+							</div>
+							<div className='rating-info'>
+								<img className='img-like' src={calendar}/>
+								<div className='rating-detail'>
+									<div className='rating-perc'>{new moment(trailerInfo.ShowDate).format('MMM')}</div>
+									<div className='rating-count'>{new moment(trailerInfo.ShowDate).format('YYYY')}</div>
+								</div>
+							</div>
+						</div>
+						<div className='movie-desc'>
+								some text some text some text some text some text some text
+								some text some text some text some text some text some text.
+							</div>	
+						</div>
+						<div className='feedback-container'>
+							<div>1</div>
+							<div>2</div>
+							<div>3</div>
+						</div>
 				 </div>
       </div>
     );

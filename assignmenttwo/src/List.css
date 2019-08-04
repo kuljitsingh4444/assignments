@@ -99,11 +99,11 @@ img.trailer-image {
 .wts-count {
 	color : white;
 	font-size:10px;
+	max-width: 54px;
+	text-align: right;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	max-width: 54px;
-	text-align: right;
 }
 
 img.like-png {
