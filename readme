@@ -1,1 +1,17 @@
-read
+##GREETINGS
+
+This Respository contains two assignmenst, both the assignmenst are created using create-react-app cli.
+
+To Run the assignmnets in you pc, (say assignmenstone)
+
+** NOTE : Please refer the 'master' branch for the code review. **
+** NOTE : Please refer the 'master' branch for the code review. **
+
+Steps:
+
+1. clone the Reposiroty locally.
+2. go to assignmenstone. (command : cd assignmenstone)
+3. install all dependencies (command : npm install).
+4. start project (command : npm start).
+
+Follow the same steps for assignmenttwo.
