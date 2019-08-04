@@ -58,7 +58,7 @@ class Trailer extends Component {
 					<img className='sel-img' src={`https://in.bmscdn.com/events/moviecard/${trailerInfo.EventCode}.jpg`}/>
 				</div>
 				<div className='trailer-main-container'>
-					<ReactPlayer width={'46.5vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerInfo.TrailerURL} playing={!isPaused} />
+					<ReactPlayer width={'46.5vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerInfo.TrailerURL} playing={!isPaused} />		
 					<div className='trailer-info-container'>
 						<div>
 							<div className='title'>{trailerInfo.EventTitle}</div>
