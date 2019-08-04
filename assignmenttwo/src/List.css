@@ -1,6 +1,6 @@
 .trailer-list-container {
 	padding:25px 0px;
-	background: #333333;
+	background: #1C1B1D;
 	display : grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -20,7 +20,7 @@ img.trailer-image {
 }
 
 .border-img {
-	border : 3px solid green !important
+	border : 3px solid #64C593 !important
 }
 
 .gap-trailer-view {
@@ -62,8 +62,8 @@ img.trailer-image {
 }
 
 .display-date {
-	background: green;
-	border :1px solid green !important;
+	background: #64C593;
+	border :1px solid #64C593 !important;
 	color : white;
 	display: flex;
 	width:26px;

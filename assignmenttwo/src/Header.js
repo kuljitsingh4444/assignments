@@ -5,7 +5,9 @@ class Header extends Component {
   render(){
     return(
       <div className='header'>
-        HEADER HERE!
+        <div className='page-title'>Movie Trailers</div>
+        <button className='button'>COMING SOON</button>
+        <button className='button now-showing'>NOW SHOWING</button>
       </div>
     );
   }

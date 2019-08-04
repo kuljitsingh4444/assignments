@@ -94,7 +94,7 @@ class Trailer extends Component {
 								</div>	
 							</div>
 							<div className='feedback-container'>
-								<div><Info value={trailerInfo.ratings.wtsCount} text='WILL WATCH' color='green'/></div>
+								<div><Info value={trailerInfo.ratings.wtsCount} text='WILL WATCH' color='#64C593'/></div>
 								<div><Info value={trailerInfo.ratings.maybe} text='MAYBE' color='yellow'/></div>
 								<div><Info value={trailerInfo.ratings.dwtsCount} text='WONT WATCH' color='#C60000'/></div>
 							</div>
