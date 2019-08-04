@@ -136,13 +136,13 @@ class List extends Component {
 						const ratings = trailerDisplayList[trailer].ratings;
 	
 						return (
-							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
+							<div key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={isFirstOfRow && showTrailer ? 'first-icon-container icon-container':'icon-container'}>
-									<img style={trailer === selectedTrailerKey ? {visibility:'hidden'} : {}} className={'play-button'} src={play}/>
-									<div className={'display-date'}>
+									<img onClick={() => this.playTrailerRequest(trailer,true)} style={trailer === selectedTrailerKey ? {visibility:'hidden'} : {}} className={'play-button'} src={play}/>
+									<div onClick={() => this.playTrailerRequest(trailer,true)} className={'display-date'}>
 										<Date ShowDate={ShowDate}/>
 									</div>
-									<div className={'display-ratings'}>
+									<div onClick={() => this.playTrailerRequest(trailer,true)} className={'display-ratings'}>
 										<Ratings ratings={ratings}/>
 									</div>
 								</div>
@@ -150,8 +150,10 @@ class List extends Component {
 									<Trailer trailerInfo={trailerDisplayList[selectedTrailerKey]} isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} />
 								</div>}
 								<div className={'trailer-image-container'}>
-									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
-									<div className={isFirstOfRow && showTrailer ? 'first-name name' : 'name'}>{trailerDisplayList[trailer].EventName}</div>
+									{/* <div className='overlay'> */}
+										<img onClick={() => this.playTrailerRequest(trailer,true)} className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
+									{/* </div> */}
+									<div onClick={() => this.playTrailerRequest(trailer,true)} className={isFirstOfRow && showTrailer ? 'first-name name' : 'name'}>{trailerDisplayList[trailer].EventName}</div>
 								</div>
 							</div>
 						);

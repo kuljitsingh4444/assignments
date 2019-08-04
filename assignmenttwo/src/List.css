@@ -16,7 +16,7 @@ img.trailer-image {
 }
 
 .trailer-image-container {
-	padding: 40px 0px 20px 0px;
+	margin: 40px 0px 20px 0px;
 }
 
 .border-img {
@@ -29,6 +29,15 @@ img.trailer-image {
 .first-name {
 	top : 350px;
 } 
+.overlay {
+	/* position: relative; */
+	/* top:-1px; */
+	/* border:1px solid red; */
+	/* background-image: linear-gradient(red, yellow); */
+	/* z-index: 3; */
+	/* opacity: ; */
+	/* height: 200px; */
+}
 
 .trailer-container {
 	position: absolute;
