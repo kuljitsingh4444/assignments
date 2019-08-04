@@ -134,6 +134,7 @@ class List extends Component {
 						const isFirstOfRow = trailerDisplayList[trailer].firstOfRow;
 						const ShowDate = trailerDisplayList[trailer].ShowDate;
 						const ratings = trailerDisplayList[trailer].ratings;
+	
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={'icon-container'}>
@@ -150,6 +151,7 @@ class List extends Component {
 								</div>}
 								<div className={isFirstOfRow && showTrailer ? 'trailer-abs trailer-image-container' :'trailer-image-container'}>
 									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
+									<div className={isFirstOfRow && showTrailer ? 'first-name name' : 'name'}>{trailerDisplayList[trailer].EventName}</div>
 								</div>
 							</div>
 						);

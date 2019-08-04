@@ -1,13 +1,12 @@
 .trailer-list-container {
+	padding:25px 0px;
 	background: #333333;
 	display : grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .trailer-list-item {
-	/* min-width : 300px */
 	display : flex;
 	justify-content : space-around;
-	/* position: relative; */
 }
 img.trailer-image {
 	height : 200px;
@@ -17,7 +16,6 @@ img.trailer-image {
 
 .trailer-image-container {
 	padding: 40px 0px 20px 0px;
-	/* position: absolute; */
 }
 
 .border-img {
@@ -26,6 +24,10 @@ img.trailer-image {
 
 .gap-trailer-view {
 	margin-top : 350px
+}
+.first-name {
+	position: relative;
+	top : 350px;
 }
 
 .trailer-container {
@@ -90,6 +92,14 @@ img.trailer-image {
 	font-weight: 500;
 	font-size:13px;
 	color : white;
+}
+
+.name {
+	position: relative;
+	left:1px;
+	color : white;
+	font-size : 12px;
+	max-width: 156px;
 }
 
 .trailer-image-container:after{
