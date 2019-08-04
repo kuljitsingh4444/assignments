@@ -3,6 +3,7 @@ import Trailer from './Trailer';
 import play from './play.png';
 import './List.css';
 import Date from './common/DisplayDate';
+import Ratings from './common/Ratings';
 
 let rowCount = 0;
 let trailerPerRow = 0;
@@ -134,12 +135,16 @@ class List extends Component {
 						const showTrailer = trailerDisplayList[trailer].rowCount === trailerAtRow ? true : false;
 						const isFirstOfRow = trailerDisplayList[trailer].firstOfRow;
 						const ShowDate = trailerDisplayList[trailer].ShowDate;
+						const ratings = trailerDisplayList[trailer].ratings;
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={'icon-container'}>
 									<img className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
 									<div className={isFirstOfRow && showTrailer ? 'first-date display-date' : 'display-date'}>
-										<Date ShoeDate={ShowDate}/>
+										<Date ShowDate={ShowDate}/>
+									</div>
+									<div className={isFirstOfRow && showTrailer ? 'first-ratings display-ratings' : 'display-ratings'}>
+										<Ratings ratings={ratings}/>
 									</div>
 								</div>
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>

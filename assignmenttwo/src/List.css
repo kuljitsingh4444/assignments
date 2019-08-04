@@ -42,6 +42,7 @@ img.trailer-image {
 	height: 42px;
 	top: 118px;
 	position: relative;
+	left:10px;
 }
 .play-first-button {
 	z-index:1;
@@ -70,8 +71,8 @@ img.trailer-image {
 	border-radius: 50%;
 	padding: 5px;
 	position: relative;
-	left: 52px;
-  top: 5px;	
+	left: 60px;
+  top: 4px;	
 }
 .month {
 	font-weight : bold;
@@ -81,9 +82,45 @@ img.trailer-image {
 	font-size:9px;
 }
 .first-date {
-	top: 355px;
+	top: 354px;
 	z-index: 1 !important;
 }
+
+.wts-perc {
+	font-weight: 500;
+	font-size:13px;
+	color : white;
+}
+
+.wts-count {
+	color : white;
+	font-size:10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 54px;
+	text-align: right;
+}
+
+img.like-png {
+	height: 20px;
+}
+
+.rating-perc {
+	display: flex;
+	align-items: center;
+}
+
+.display-ratings {
+	position: relative;
+	left: 44px;
+	top: 125px;
+}
+
+.first-ratings {
+
+}
+
 
 @media screen and (max-width: 1000px) {
 	.trailer-list-container {
