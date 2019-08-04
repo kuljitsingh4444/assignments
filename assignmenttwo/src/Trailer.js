@@ -50,7 +50,7 @@ class Trailer extends Component {
 		const { isPaused } = this.state;
     return(
       <div className='trailer-main-container'>
-   			<ReactPlayer onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerLink} playing={!isPaused} />
+   			<ReactPlayer width={'45vw'} className='player' onStart={this.handleStart} progressInterval={0} onPause={this.handlePause} onPlay={this.handlePlay} ref={this.trailer} onProgress={this.handleProgress} url={trailerLink} playing={!isPaused} />
 				 <div className='trailer-info-container'>
 					 INFO HERE
 				 </div>

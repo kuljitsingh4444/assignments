@@ -1,7 +1,12 @@
 .trailer-info-container {
-    
+    height: 100%;
+    border: 1px solid red;
+    height: 358px;
+    margin-left: 20px;
+    width:45vw;
 }
 .trailer-main-container {
-    position: absolute;
+    position: absolute;  
     display: flex;
+    justify-content: space-between
 }
