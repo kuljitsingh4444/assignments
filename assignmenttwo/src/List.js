@@ -16,6 +16,8 @@ class List extends Component {
 			trailerLink : ''
 		}
 		this.trailerContainer = React.createRef();
+		this.playedSeconds = 0;
+		this.isTrailerPaused = false;
 	}
 
 	handleWindow = () => {
@@ -33,10 +35,14 @@ class List extends Component {
 			newTrailerPerRow =  6;
 		}
 		if(newTrailerPerRow !== trailerPerRow){
+			const { selectedTrailerKey } = this.state;
 			trailerPerRow = newTrailerPerRow;
 			const { trailerList } = this.props;
 			let trailerListCopy = {...trailerList}
 			this.setRowCount(trailerListCopy)
+			if(selectedTrailerKey) {
+				this.playTrailerRequest(selectedTrailerKey)
+			}
 		}
 	}
 
@@ -107,6 +113,11 @@ class List extends Component {
 			return 'trailer-image'+classList
 		}
 	}
+
+	updatePlayTime = (playedSeconds, isTrailerPaused) => {
+		this.playedSeconds = playedSeconds;
+		this.isTrailerPaused = isTrailerPaused;
+	}
 	
   render(){
 		const { trailerDisplayList = {}, trailerAtRow, trailerLink } = this.state;
@@ -123,7 +134,7 @@ class List extends Component {
 									<img className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
 								</div>
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
-									<Trailer trailerLink={trailerLink}/>
+									<Trailer isTrailerPaused={this.isTrailerPaused} playedSeconds={this.playedSeconds} updatePlayTime={this.updatePlayTime} trailerLink={trailerLink}/>
 								</div>}
 								<div className={isFirstOfRow && showTrailer ? 'trailer-abs trailer-image-container' :'trailer-image-container'}>
 									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	

@@ -25,12 +25,12 @@ img.trailer-image {
 }
 
 .gap-trailer-view {
-	padding-top : 350px
+	margin-top : 350px
 }
 
 .trailer-container {
 	position: absolute;
-	left:2.5%;
+	left:2.5%;	
 	height:350px;
 }
 .image-placement {
