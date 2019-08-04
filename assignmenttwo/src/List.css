@@ -29,7 +29,8 @@ img.trailer-image {
 }
 
 .trailer-container {
-	/* position: absolute; */
+	position: absolute;
+	left:2.5%;
 	height:350px;
 }
 .image-placement {
