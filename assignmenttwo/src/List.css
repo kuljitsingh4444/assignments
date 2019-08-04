@@ -28,7 +28,7 @@ img.trailer-image {
 }
 
 .trailer-container {
-	position: absolute;
+	/* position: absolute; */
 	height:350px;
 }
 .image-placement {
