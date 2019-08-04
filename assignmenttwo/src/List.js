@@ -138,7 +138,7 @@ class List extends Component {
 						return (
 							<div onClick={() => this.playTrailerRequest(trailer,true)} key={key} className={this.getClassNames(showTrailer,isFirstOfRow)}>
 								<div className={'icon-container'}>
-									<img className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
+									<img style={trailer === selectedTrailerKey ? {visibility:'hidden'} : {}} className={isFirstOfRow && showTrailer ? 'play-button play-first-button' : 'play-button'} src={play}/>
 									<div className={isFirstOfRow && showTrailer ? 'first-date display-date' : 'display-date'}>
 										<Date ShowDate={ShowDate}/>
 									</div>
