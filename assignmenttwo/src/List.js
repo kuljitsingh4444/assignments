@@ -125,7 +125,7 @@ class List extends Component {
 								{isFirstOfRow && showTrailer && <div ref={this.trailerContainer} className='trailer-container'>
 									<Trailer trailerLink={trailerLink}/>
 								</div>}
-								<div className={'trailer-image-container'}>
+								<div className={isFirstOfRow && showTrailer ? 'trailer-abs trailer-image-container' :'trailer-image-container'}>
 									<img className={this.getImageClass(showTrailer, isFirstOfRow, trailer)} src={`https://in.bmscdn.com/events/moviecard/${trailer}.jpg`}/>	
 								</div>
 							</div>
